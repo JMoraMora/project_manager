@@ -30,7 +30,26 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
+        $name = $request->input('name');
+        $budget = $request->input('budget');
+        $user = $request->input('user');
+        $city = $request->input('city');
+        $company = $request->input('company');
 
+        $project = new Project();
+
+        $project->name = $name;
+        $project->budget = $budget;
+        $project->user_id = $user;
+        $project->city_id = $city;
+        $project->company_id = $company;
+
+        $project->execution_date = now();
+        $project->is_active = true;
+
+        $project->save();
+
+        return  redirect()->route('project.index');
     }
 
     public function show(string $id)
@@ -48,9 +67,26 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        
+        $name = $request->input('name');
+        $budget = $request->input('budget');
+        $user = $request->input('user');
+        $city = $request->input('city');
+        $company = $request->input('company');
+
+        $project->name = $name;
+        $project->budget = $budget;
+        $project->user_id = $user;
+        $project->city_id = $city;
+        $project->company_id = $company;
+
+        $project->execution_date = now();
+        $project->is_active = true;
+
+        $project->save();
+
+        return  redirect()->route('project.index');
     }
 
     public function destroy(Project $project)
