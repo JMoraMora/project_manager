@@ -46,7 +46,7 @@
                                 <form action="{{ route('project.destroy', $project) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-xs px-5 py-2.5">Eliminar</button>
+                                    <button type="submit" onclick="return confirm('are you sure?')" class="text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-xs px-5 py-2.5">Eliminar</button>
                                 </form>
                             </div>
                         </td>
