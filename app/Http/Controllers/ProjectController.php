@@ -10,9 +10,6 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $projects = Project::latest()->paginate(10);
@@ -52,9 +49,9 @@ class ProjectController extends Controller
         return  redirect()->route('project.index');
     }
 
-    public function show(string $id)
+    public function show(Project $project)
     {
-        
+        return view('projects.detail', compact('project'));
     }
 
     public function edit(Project $project)

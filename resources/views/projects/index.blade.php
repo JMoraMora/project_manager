@@ -42,6 +42,7 @@
                         <td class="px-6 py-4">{{ $project->company->name }}</td>
                         <td class="px-6 py-4">
                             <div class="flex flex-row items-center">
+                                <a href="{{ route('project.show', $project) }}" class="text-white bg-yellow-500 hover:bg-yellow-800 font-medium rounded-lg text-xs px-5 py-2.5 mr-2">Detalle</a>
                                 <a href="{{ route('project.edit', $project) }}" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-xs px-5 py-2.5 mr-2">Editar</a>
                                 <form action="{{ route('project.destroy', $project) }}" method="POST">
                                     @csrf
